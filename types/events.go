@@ -155,8 +155,8 @@ func TypedEventToEvent(tev proto.Message) (Event, error) {
 	for _, k := range keys {
 		v := attrMap[k]
 		attrs = append(attrs, abci.EventAttribute{
-			Key:   []byte(k),
-			Value: v,
+			Key:   k,
+			Value: string(v),
 		})
 	}
 
@@ -243,7 +243,7 @@ func (a Attribute) String() string {
 
 // ToKVPair converts an Attribute object into a Tendermint key/value pair.
 func (a Attribute) ToKVPair() abci.EventAttribute {
-	return abci.EventAttribute{Key: []byte(a.Key), Value: []byte(a.Value)}
+	return abci.EventAttribute{Key: a.Key, Value: a.Value}
 }
 
 // AppendAttributes adds one or more attributes to an Event.

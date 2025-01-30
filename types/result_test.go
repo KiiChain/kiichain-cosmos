@@ -3,9 +3,10 @@ package types_test
 import (
 	"encoding/hex"
 	"fmt"
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	"strings"
 	"testing"
+
+	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/stretchr/testify/require"
@@ -171,8 +172,8 @@ func (s *resultTestSuite) TestResponseFormatBroadcastTxCommit() {
 					Type: "message",
 					Attributes: []abci.EventAttribute{
 						{
-							Key:   []byte("action"),
-							Value: []byte("foo"),
+							Key:   "action",
+							Value: "foo",
 							Index: true,
 						},
 					},
@@ -206,8 +207,8 @@ func (s *resultTestSuite) TestResponseFormatBroadcastTxCommit() {
 				Type: "message",
 				Attributes: []abci.EventAttribute{
 					{
-						Key:   []byte("action"),
-						Value: []byte("foo"),
+						Key:   "action",
+						Value: "foo",
 						Index: true,
 					},
 				},
